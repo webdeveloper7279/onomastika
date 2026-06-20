@@ -21,7 +21,7 @@ app.use(
 );
 
 // Base64 fayllar uchun katta limit.
-app.use(express.json({ limit: '15mb' }));
+app.use(express.json({ limit: '20mb' }));
 
 // ── Sog'liq tekshiruvi ──
 app.get('/', (req, res) => {
@@ -47,7 +47,7 @@ app.use((err, req, res, next) => {
     return res.status(400).json({ error: 'Noto\'g\'ri JSON' });
   }
   if (err.type === 'entity.too.large') {
-    return res.status(413).json({ error: 'Fayl juda katta (maks 15MB)' });
+    return res.status(413).json({ error: 'Fayl juda katta' });
   }
   console.error(err);
   res.status(500).json({ error: 'Server xatosi' });
