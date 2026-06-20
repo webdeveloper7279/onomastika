@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Muhit o'zgaruvchilari (maxfiy!)
+.env
+*.env
+!*.env.example
+
+# Lokal JSON ombori
+backend/data/
+
+# Editor / lokal sozlamalar
+.claude/
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
+
+# Asl bitta-fayl versiyasi (frontend/index.html bilan almashtirilgan)
+/onomastika*.html

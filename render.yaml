@@ -1,0 +1,30 @@
+# Render.com Blueprint — backend + bepul PostgreSQL ombori.
+# Render panelida: New → Blueprint → shu repo → render.yaml avtomatik o'qiladi.
+databases:
+  - name: onomastika-db
+    plan: free
+
+services:
+  - type: web
+    name: onomastika-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      # Ma'lumotlar ombori avtomatik ulanadi:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: onomastika-db
+          property: connectionString
+      # Tokenlar uchun maxfiy kalit (avtomatik generatsiya):
+      - key: JWT_SECRET
+        generateValue: true
+      # Admin paroli (Render panelida kiriting; bo'sh qolsa: onomastika2025):
+      - key: ADMIN_PASSWORD
+        sync: false
+      # Frontend manzili (Netlify URL), masalan https://onomastika.netlify.app
+      - key: CORS_ORIGIN
+        sync: false
