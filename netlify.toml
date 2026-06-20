@@ -1,0 +1,19 @@
+# Netlify sozlamasi (repo ildizida) — frontend/ papkasini deploy qiladi.
+# Netlify'da qo'lda base/publish kiritish shart emas — shu fayl hammasini hal qiladi.
+[build]
+  publish = "frontend"
+  command = ""
+
+# SPA: mavjud fayllar (config.js, index.html) avval beriladi,
+# topilmagan yo'llar index.html ga yo'naltiriladi.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

@@ -96,10 +96,8 @@ Eng oson yo'l — **Blueprint** (`render.yaml` avtomatik o'qiladi, Postgres ham 
    O'zgarishni commit qilib push qiling.
 
 2. [netlify.com](https://netlify.com) ga kiring → **Add new site → Import an existing project**.
-3. GitHub reponi tanlang. Sozlamalar:
-   - **Base directory:** `frontend`
-   - **Publish directory:** `frontend`
-   - **Build command:** bo'sh qoldiring
+3. GitHub reponi tanlang → build sozlamalarini **o'zgartirmang** (ildizdagi
+   `netlify.toml` avtomatik `frontend/` papkasini deploy qiladi).
 4. **Deploy** → sayt manzilini oling, masalan `https://onomastika.netlify.app`.
 
 5. **CORS'ni yangilang:** Render → `onomastika-api` → Environment →
